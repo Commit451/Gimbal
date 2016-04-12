@@ -1,7 +1,7 @@
 # Gimbal
 Assists with orientation locking and sensor event normalization
 
-There are many apps that lock orientation. There are good and bad reasons for this. But many times, locking a single activity within your app would suffice. Gimbal serves that purpose. When you navigate to an activity, it will lock the device to the orientation that the user was in when they entered. This way, if the user prefers to use your app in landscape, they will not have to be forced into portrait just because your app is not able to handle orientation on a screen for whatever reason
+There are many apps that lock orientation. There are good and bad reasons for this. But many times, locking a single activity within your app would suffice. Gimbal serves that purpose. When tied to an activity, it gives you control over locking and unlocking the current orientation of the user. This way, if the user prefers to use your app in landscape, they will not have to be forced into portrait in a single activty, but instead are locked into their current orientation. 
 
 [![Build Status](https://travis-ci.org/Commit451/Gimbal.svg?branch=master)](https://travis-ci.org/Commit451/Gimbal)
 
@@ -34,6 +34,7 @@ gimbal.lock();
 //later, if need be
 gimbal.unlock();
 ```
+See the sample project for a comprehensive example. 
 
 License
 --------
