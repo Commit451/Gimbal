@@ -1,4 +1,4 @@
-package com.commit451.gitbal;
+package com.commit451.gimbal;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;

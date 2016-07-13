@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.commit451.gitbal.Gimbal;
+import com.commit451.gimbal.Gimbal;
 
 
 public class LockUnlockActivity extends AppCompatActivity {

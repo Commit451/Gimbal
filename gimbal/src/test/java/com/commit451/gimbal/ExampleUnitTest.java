@@ -1,4 +1,4 @@
-package com.commit451.gitbal;
+package com.commit451.gimbal;
 
 import org.junit.Test;
 

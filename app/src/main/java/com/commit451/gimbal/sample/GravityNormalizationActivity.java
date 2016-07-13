@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.commit451.gitbal.Gimbal;
+import com.commit451.gimbal.Gimbal;
 import com.jawnnypoo.physicslayout.PhysicsFrameLayout;
 
 import org.jbox2d.common.Vec2;
