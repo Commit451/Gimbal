@@ -54,6 +54,7 @@ public class GravityNormalizationActivity extends Activity {
         setContentView(R.layout.activity_gravity_normalization);
         ButterKnife.bind(this);
         mGimbal = new Gimbal(this);
+        mGimbal.lock();
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mGravitySensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
         if (mGravitySensor == null) {

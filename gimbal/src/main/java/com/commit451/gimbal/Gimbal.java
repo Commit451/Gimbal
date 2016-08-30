@@ -10,7 +10,7 @@ import android.view.Surface;
 import java.lang.ref.WeakReference;
 
 /**
- * Tool to help out with rotation based things
+ * Tool to help out with rotation and orientation based events
  */
 public class Gimbal {
 
@@ -18,6 +18,10 @@ public class Gimbal {
     private Point mNormalizationPoint;
     private Point mDisplayPoint;
 
+    /**
+     * Create a new instance of Gimbal, using the context and values of the activity
+     * @param activity the activity to get values from and potentially modify
+     */
     public Gimbal(Activity activity) {
         mActivityWeakReference = new WeakReference<>(activity);
     }
@@ -80,6 +84,7 @@ public class Gimbal {
 
     /**
      * Unlock the previously locked activity
+     * @return true if successfully unlocked. False otherwise
      */
     public boolean unlock() {
         Activity activity = mActivityWeakReference.get();
@@ -91,13 +96,14 @@ public class Gimbal {
     }
 
     /**
-     * Normalize a {@link SensorEvent} from the gravity sensor for the current orientation. Has chance to fail at normalization if the activity no longer exists or has a window
+     * Normalize a {@link SensorEvent} from the gravity sensor for the current orientation.
      * @param event the {@link SensorEvent} which will be normalized, typically acquired in a {@link android.hardware.SensorEventListener} event
+     * @return true if event has been normalized. False otherwise
      */
-    public void normalizeGravityEvent(SensorEvent event) {
+    public boolean normalizeGravityEvent(SensorEvent event) {
         Activity activity = mActivityWeakReference.get();
         if (activity == null) {
-            return;
+            return false;
         }
         Display display = activity.getWindow().getWindowManager().getDefaultDisplay();
         int rotation = display.getRotation();
@@ -163,5 +169,6 @@ public class Gimbal {
         }
         event.values[0] = x;
         event.values[1] = y;
+        return true;
     }
 }
