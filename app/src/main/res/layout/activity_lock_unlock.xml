@@ -18,14 +18,14 @@
             android:text="Welcome to the lock/unlock activity!"/>
 
         <Button
-            android:id="@+id/button_unlock"
+            android:id="@+id/buttonUnlock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Unlock"/>
 
         <Button
-            android:id="@+id/button_event_normalization"
+            android:id="@+id/buttonEventNormalization"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
