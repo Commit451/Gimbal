@@ -8,12 +8,8 @@ import android.hardware.SensorManager
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-
 import com.commit451.gimbal.Gimbal
-
-import org.jbox2d.common.Vec2
-
-import kotlinx.android.synthetic.main.activity_gravity_normalization.*
+import com.commit451.gimbal.sample.databinding.ActivityGravityNormalizationBinding
 
 /**
  * Show the gravity normalization of Gimbal
@@ -23,23 +19,24 @@ class GravityNormalizationActivity : AppCompatActivity() {
     private lateinit var gimbal: Gimbal
     private lateinit var sensorManager: SensorManager
     private var gravitySensor: Sensor? = null
+    private lateinit var binding: ActivityGravityNormalizationBinding
 
     private val sensorEventListener = object : SensorEventListener {
         override fun onSensorChanged(event: SensorEvent) {
             if (event.sensor.type == Sensor.TYPE_GRAVITY) {
-                if (physicslayout.physics.world != null) {
-                    gimbal.normalizeGravityEvent(event)
-                    physicslayout.physics.world.gravity = Vec2(-event.values[0], event.values[1])
-                }
+                gimbal.normalizeGravityEvent(event)
+                binding.image.translationX = -event.values[0] * 12f
+                binding.image.translationY = event.values[1] * 12f
             }
         }
 
-        override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {}
+        override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) = Unit
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gravity_normalization)
+        binding = ActivityGravityNormalizationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         gimbal = Gimbal(this)
         gimbal.lock()
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager

@@ -1,21 +1,37 @@
 # Gimbal
-Assists with orientation locking and sensor event normalization
 
-There are many apps that lock orientation. There are good and bad reasons for this. But many times, locking a single activity within your app would suffice. Gimbal serves that purpose. When tied to an activity, it gives you control over locking and unlocking the current orientation of the user. This way, if the user prefers to use your app in landscape, they will not have to be forced into portrait in a single activty, but instead are locked into their current orientation. 
+Assists with orientation locking and sensor event normalization.
 
-[![Build Status](https://travis-ci.org/Commit451/Gimbal.svg?branch=master)](https://travis-ci.org/Commit451/Gimbal)
-[![](https://jitpack.io/v/Commit451/Gimbal.svg)](https://jitpack.io/#Commit451/Gimbal)
+There are many apps that lock orientation. There are good and bad reasons for this. But many times,
+locking a single activity within your app would suffice. Gimbal serves that purpose. When tied to an
+activity, it gives you control over locking and unlocking the current orientation of the user. This
+way, if the user prefers to use your app in landscape, they will not have to be forced into portrait
+in a single activity, but instead are locked into their current orientation.
 
-# Usage
-If you are using this library to lock orientation on certain activities, usage is simple:
-```java
-//this == activity
-Gimbal gimbal = new Gimbal(this);
-gimbal.lock();
-//later, if need be
-gimbal.unlock();
+[![Build](https://github.com/Commit451/Gimbal/actions/workflows/ci.yml/badge.svg)](https://github.com/Commit451/Gimbal/actions/workflows/ci.yml)
+[![Maven Central](https://img.shields.io/maven-central/v/com.commit451/gimbal.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/com.commit451/gimbal)
+
+## Dependency
+
+```gradle
+dependencies {
+    implementation "com.commit451:gimbal:latest.version.here"
+}
 ```
-See the sample project for a comprehensive example. 
+
+## Usage
+
+If you are using this library to lock orientation on certain activities, usage is simple:
+
+```kotlin
+// this == activity
+val gimbal = Gimbal(this)
+gimbal.lock()
+// later, if need be
+gimbal.unlock()
+```
+
+See the sample project for a comprehensive example.
 
 License
 --------
